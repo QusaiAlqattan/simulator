@@ -44,27 +44,27 @@ public class Processor {
     }
 
     public void updateState(int clockCount){
-        if (t == null || passedCycles + 1 == t.getExecutionTime()) {
-            if (this.id == 2) {
-                System.out.println("Processor should be Idel");
-            }
-                this.removeTask();
-                this.state = "Idle";
-                passedCycles = 0;
+        passedCycles++;
+        if (t == null || passedCycles == t.getExecutionTime()) {
+//            if (this.id == 2) {
+//                System.out.println("Processor should be Idel");
+//            }
+            this.removeTask();
+            this.state = "Idle";
+            passedCycles = 0;
         }
         else{
             this.state = "Busy";
-            passedCycles++;
         }
-        if (this.id == 2){
-            System.out.println("Clock count: " + clockCount);
-            System.out.println("State: " + state);
-            System.out.println("Passed cycles: " + passedCycles);
-            if (t != null){
-                System.out.println("Task: " + t.getId());
-                System.out.println("Duration: " + t.getExecutionTime());
-            }
-            System.out.println("###########################################");
-        }
+//        if (this.id == 2){
+//            System.out.println("Clock count: " + clockCount);
+//            System.out.println("State: " + state);
+//            System.out.println("Passed cycles: " + passedCycles);
+//            if (t != null){
+//                System.out.println("Task: " + t.getId());
+//                System.out.println("Duration: " + t.getExecutionTime());
+//            }
+//            System.out.println("###########################################");
+//        }
     }
 }

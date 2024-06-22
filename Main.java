@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String filePath = "C:\\Users\\qusai\\Desktop\\out_study\\atypon\\assign\\simulator_input\\test_2.txt";
+        String filePath = "C:\\Users\\qusai\\Desktop\\out_study\\atypon\\assign\\simulator_input\\test_1.txt";
 
         // read from file
         BufferedReader br = new BufferedReader(new FileReader(filePath));
@@ -20,7 +20,7 @@ public class Main {
         }
 
         // crete processors
-        int p_count = 2;
+        int p_count = 4;
         Processor[] processors = new Processor[p_count];
         for (int i = 0; i < p_count; i++) {
             processors[i] = (new Processor(i+1));
@@ -28,18 +28,14 @@ public class Main {
 
         // total number of cycles
         int counter = 1;
-        int cycleCount = 10;
+        int cycleCount = 12;
 
         // create pool
         Scheduler.createPool(pool);
 
-//        while (counter <= cycleCount) {
-        Clock.tic(counter++, processors);
-        Clock.tic(counter++, processors);
-        Clock.tic(counter++, processors);
-        Clock.tic(counter++, processors);
-        Clock.tic(counter++, processors);
-//            counter++;
-//        }
+        while (counter <= cycleCount) {
+            Clock.tic(counter, processors);
+            counter++;
+        }
     }
 }

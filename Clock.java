@@ -12,11 +12,12 @@ public abstract class Clock {
         Scheduler.assignTasks(processors);
 
         // log
-//        System.out.println("Clock number: " + clockCount);
-//        for (Processor processor : processors) {
-//            System.out.println("P"+ processor.getId() + " state: " + processor.getState());
-//            System.out.println("P"+ processor.getId() + " assigned task number: " + processor.getTask().getId());
-//        }
-//        System.out.println("###############################################");
+        System.out.println("Clock number: " + clockCount);
+        for (Processor processor : processors) {
+            System.out.println("P"+ processor.getId() + " state: " + processor.getState());
+            if (processor.getTask() != null)
+                System.out.println("P"+ processor.getId() + " assigned T" + processor.getTask().getId());
+        }
+        System.out.println("###############################################");
     }
 }

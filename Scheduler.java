@@ -25,14 +25,14 @@ public abstract class Scheduler {
     }
 
     static void assignTasks(Processor[] processors) {
-        if (!queue.isEmpty()) {
-            for (Processor p : processors) {
-                if(p.getState().equals("Idle")) {
+        for (Processor p : processors) {
+            if(p.getState().equals("Idle")) {
+                if (!queue.isEmpty()) {
                     // get task from queue
                     Task highestPriorityTask = findHighestPriorityTask();
                     p.setTask(highestPriorityTask);
                     System.out.println("*****************************");
-                    System.out.println(highestPriorityTask.getId());
+                    System.out.println("Assign T" + highestPriorityTask.getId() + " to P" + p.getId());
                     System.out.println("******************************");
                     queue.remove(highestPriorityTask);
                 }
