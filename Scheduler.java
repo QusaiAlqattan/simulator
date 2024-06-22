@@ -15,15 +15,26 @@ public abstract class Scheduler {
                 task.setState("In Queue");
             }
         }
+//        for (Task task : queue) {
+//            System.out.println(task.getId());
+//            System.out.println(task.getStartCycle());
+//            System.out.println(task.getExecutionTime());
+//            System.out.println(task.getPriority());
+//            System.out.println("###########################33");
+//        }
     }
 
     static void assignTasks(Processor[] processors) {
-        for (Processor p : processors) {
-            if(p.getState().equals("Idle")) {
-                // get task from queue
-                for (Task task : queue) {
+        if (!queue.isEmpty()) {
+            for (Processor p : processors) {
+                if(p.getState().equals("Idle")) {
+                    // get task from queue
                     Task highestPriorityTask = findHighestPriorityTask();
                     p.setTask(highestPriorityTask);
+                    System.out.println("*****************************");
+                    System.out.println(highestPriorityTask.getId());
+                    System.out.println("******************************");
+                    queue.remove(highestPriorityTask);
                 }
             }
         }

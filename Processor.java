@@ -4,10 +4,10 @@ public class Processor {
     private final int id;
     private Task t = null;
     private String state = "Idle";
+    private int passedCycles = 0;
 
-    public Processor(int id, Task t) {
+    public Processor(int id) {
         this.id = id;
-        this.t = t;
     }
 
     public int getId() {
@@ -30,9 +30,13 @@ public class Processor {
     }
 
     public int removeTask(){
-        int id = this.t.getId();
-        this.t = null;
-        return id;
+        if (t != null){
+            int id = this.t.getId();
+            this.t.setState("Finished");
+            this.t = null;
+            return id;
+        }
+        return 0;
     }
 
     public String getState(){
@@ -40,12 +44,27 @@ public class Processor {
     }
 
     public void updateState(int clockCount){
-        if (clockCount == t.getExecutionTime() + t.getStartCycle()) {
-            this.removeTask();
-            this.state = "Idle";
+        if (t == null || passedCycles + 1 == t.getExecutionTime()) {
+            if (this.id == 2) {
+                System.out.println("Processor should be Idel");
+            }
+                this.removeTask();
+                this.state = "Idle";
+                passedCycles = 0;
         }
         else{
             this.state = "Busy";
+            passedCycles++;
+        }
+        if (this.id == 2){
+            System.out.println("Clock count: " + clockCount);
+            System.out.println("State: " + state);
+            System.out.println("Passed cycles: " + passedCycles);
+            if (t != null){
+                System.out.println("Task: " + t.getId());
+                System.out.println("Duration: " + t.getExecutionTime());
+            }
+            System.out.println("###########################################");
         }
     }
 }
