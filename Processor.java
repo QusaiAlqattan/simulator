@@ -1,6 +1,9 @@
+import java.util.Objects;
+
 public class Processor {
     private final int id;
     private Task t = null;
+    private String state = "Idle";
 
     public Processor(int id, Task t) {
         this.id = id;
@@ -16,8 +19,10 @@ public class Processor {
     }
 
     public void setTask(Task t) {
-        if (this.t == null) {
+        // check state
+        if (Objects.equals(this.state, "Idle")) {
             this.t = t;
+            this.state = "Busy";
         } else {
             // Throw exception and say the processor is busy
             throw new IllegalStateException("Processor is busy");
@@ -30,7 +35,17 @@ public class Processor {
         return id;
     }
 
-    public boolean isIdle(){
-        return t == null;
+    public String getState(){
+        return state;
+    }
+
+    public void updateState(int clockCount){
+        if (clockCount == t.getExecutionTime() + t.getStartCycle()) {
+            this.removeTask();
+            this.state = "Idle";
+        }
+        else{
+            this.state = "Busy";
+        }
     }
 }
