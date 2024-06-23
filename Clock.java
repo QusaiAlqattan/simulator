@@ -1,4 +1,4 @@
-public abstract class Clock {
+public class Clock {
     static void tic(int clockCount, Processor[] processors) {
         // processors update state
         for (Processor processor : processors) {

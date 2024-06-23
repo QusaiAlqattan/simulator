@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public abstract class Scheduler {
+public class Scheduler {
     static LinkedList<Task> queue = new LinkedList<>();
     static Task[] pool;
 
