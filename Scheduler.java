@@ -31,10 +31,11 @@ public class Scheduler {
                     // get task from queue
                     Task highestPriorityTask = findHighestPriorityTask();
                     p.setTask(highestPriorityTask);
-                    System.out.println("*****************************");
+                    System.out.println("******************************");
                     System.out.println("Assign T" + highestPriorityTask.getId() + " to P" + p.getId());
                     System.out.println("******************************");
                     queue.remove(highestPriorityTask);
+                    highestPriorityTask.setState("In Processor");
                 }
             }
         }
