@@ -1,8 +1,8 @@
 import java.util.LinkedList;
 
 public class Scheduler {
-    static LinkedList<Task> queue = new LinkedList<>();
-    static Task[] pool;
+    static private LinkedList<Task> queue = new LinkedList<>();
+    static private Task[] pool;
 
     static void createPool(Task[] pool) {
         Scheduler.pool = pool;

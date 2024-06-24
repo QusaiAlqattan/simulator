@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Simulator {
-    public static void run(int p_count, int cycleCount, String filePath) throws IOException, InterruptedException {
+    static void run(int p_count, int cycleCount, String filePath) throws IOException, InterruptedException {
 
         // read from file
         BufferedReader br = new BufferedReader(new FileReader(filePath));

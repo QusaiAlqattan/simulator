@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Processor {
+public class Processor implements Processor_int{
     private final int id;
     private Task t = null;
     private String state = "Idle";
@@ -10,14 +10,17 @@ public class Processor {
         this.id = id;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public Task getTask() {
         return t;
     }
 
+    @Override
     public void setTask(Task t) {
         // check state
         if (Objects.equals(this.state, "Idle")) {
@@ -29,6 +32,7 @@ public class Processor {
         }
     }
 
+    @Override
     public int removeTask(){
         if (t != null){
             int id = this.t.getId();
@@ -39,10 +43,12 @@ public class Processor {
         return 0;
     }
 
+    @Override
     public String getState(){
         return state;
     }
 
+    @Override
     public void updateState(int clockCount){
         passedCycles++;
         if (t == null || passedCycles == t.getExecutionTime()) {

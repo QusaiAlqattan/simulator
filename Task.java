@@ -1,4 +1,4 @@
-public class Task implements Comparable<Task>{
+public class Task implements Comparable<Task>, Task_int{
     private final int id;
     private final int startCycle;
     private final int executionTime;
@@ -12,26 +12,32 @@ public class Task implements Comparable<Task>{
         this.priority = priority;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public int getStartCycle() {
         return startCycle;
     }
 
+    @Override
     public int getExecutionTime() {
         return executionTime;
     }
 
+    @Override
     public int getPriority() {
         return priority;
     }
 
+    @Override
     public String getState() {
         return state;
     }
 
+    @Override
     public void setState(String state) {
         this.state = state;
     }
