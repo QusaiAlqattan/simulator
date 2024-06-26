@@ -22,8 +22,14 @@ public class Simulator {
                 int1 = Integer.parseInt(line_arr[0]);
                 int2 = Integer.parseInt(line_arr[1]);
                 int3 = Integer.parseInt(line_arr[2]);
+            }catch (IOException e) {
+                System.out.println("Error reading from file: " + e.getMessage());
+                return;
             }catch (NumberFormatException e){
-                System.out.println("Error in reading from file: " + e.getMessage());
+                System.out.println("A line contains a nun numeric character: " + e.getMessage());
+                return;
+            }catch (ArrayIndexOutOfBoundsException e){
+                System.out.println("A line is missing a number");
                 return;
             }
 
