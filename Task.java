@@ -46,15 +46,11 @@ public class Task implements Comparable<Task>, Task_int{
     public int compareTo(Task other) {
         // Compare tasks based on priority and duration
         if (this.priority == other.priority) {
-            if (this.executionTime <= other.executionTime) {
-                return -1;
-            }else{
-                return +1;
-            }
+            return Integer.compare(other.executionTime, this.executionTime);
         } else if (this.priority < other.priority) {
-            return -1;
-        }else {
             return +1;
+        }else {
+            return -1;
         }
     }
 }

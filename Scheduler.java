@@ -1,7 +1,8 @@
-import java.util.LinkedList;
+//import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class Scheduler {
-    static private LinkedList<Task> queue = new LinkedList<>();
+    static private PriorityQueue<Task> queue = new PriorityQueue<>();
     static private Task[] pool;
 
     static void createPool(Task[] pool) {
@@ -29,7 +30,7 @@ public class Scheduler {
             if(p.getState().equals("Idle")) {
                 if (!queue.isEmpty()) {
                     // get task from queue
-                    Task highestPriorityTask = findHighestPriorityTask();
+                    Task highestPriorityTask = queue.poll();
                     p.setTask(highestPriorityTask);
                     System.out.println("******************************");
                     System.out.println("Assign T" + highestPriorityTask.getId() + " to P" + p.getId());
@@ -41,15 +42,15 @@ public class Scheduler {
         }
     }
 
-    static Task findHighestPriorityTask(){
-        Task highestPriorityTask = null;
-
-        for (Task task : queue) {
-            if (highestPriorityTask == null || highestPriorityTask.compareTo(task) < 0) {
-                highestPriorityTask = task;
-            }
-        }
-
-        return highestPriorityTask;
-    }
+//    static Task findHighestPriorityTask(){
+//        Task highestPriorityTask = null;
+//
+//        for (Task task : queue) {
+//            if (highestPriorityTask == null || highestPriorityTask.compareTo(task) < 0) {
+//                highestPriorityTask = task;
+//            }
+//        }
+//
+//        return highestPriorityTask;
+//    }
 }

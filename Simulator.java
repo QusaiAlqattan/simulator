@@ -11,9 +11,23 @@ public class Simulator {
         int taskCount = Integer.parseInt(br.readLine());
         Task[] pool = new Task[taskCount];
         for (int i = 0; i < taskCount; i++) {
-            line = br.readLine();
-            String[] line_arr = line.split(" ");
-            Task n = new Task(i+1, Integer.parseInt(line_arr[0]), Integer.parseInt(line_arr[1]), Integer.parseInt(line_arr[2]));
+            // validate input
+            int int1;
+            int int2;
+            int int3;
+
+            try{
+                line = br.readLine();
+                String[] line_arr = line.split(" ");
+                int1 = Integer.parseInt(line_arr[0]);
+                int2 = Integer.parseInt(line_arr[1]);
+                int3 = Integer.parseInt(line_arr[2]);
+            }catch (NumberFormatException e){
+                System.out.println("Error in reading from file: " + e.getMessage());
+                return;
+            }
+
+            Task n = new Task(i+1, int1, int2, int3);
             pool[i] = n;
         }
 
