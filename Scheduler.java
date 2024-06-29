@@ -13,7 +13,6 @@ public class Scheduler {
         for (Task task : pool) {
             if (task.getStartCycle() == clockCount) {
                 queue.add(task);
-                task.setState("In Queue");
             }
         }
 //        for (Task task : queue) {
@@ -36,7 +35,6 @@ public class Scheduler {
                     System.out.println("Assign T" + highestPriorityTask.getId() + " to P" + p.getId());
                     System.out.println("******************************");
                     queue.remove(highestPriorityTask);
-                    highestPriorityTask.setState("In Processor");
                 }
             }
         }

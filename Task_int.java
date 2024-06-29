@@ -7,9 +7,5 @@ public interface Task_int {
 
     int getPriority();
 
-    String getState();
-
-    void setState(String state);
-
     int compareTo(Task other);
 }

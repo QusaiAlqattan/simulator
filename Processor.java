@@ -36,7 +36,6 @@ public class Processor implements Processor_int{
     public int removeTask(){
         if (t != null){
             int id = this.t.getId();
-            this.t.setState("Finished");
             this.t = null;
             return id;
         }

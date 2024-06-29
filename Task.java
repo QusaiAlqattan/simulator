@@ -3,7 +3,6 @@ public class Task implements Comparable<Task>, Task_int{
     private final int startCycle;
     private final int executionTime;
     private final int priority;
-    private String state = "In Pool";
 
     public Task(int id, int startCycle, int executionTime, int priority){
         this.id = id;
@@ -30,16 +29,6 @@ public class Task implements Comparable<Task>, Task_int{
     @Override
     public int getPriority() {
         return priority;
-    }
-
-    @Override
-    public String getState() {
-        return state;
-    }
-
-    @Override
-    public void setState(String state) {
-        this.state = state;
     }
 
     @Override
