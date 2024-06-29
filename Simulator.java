@@ -37,6 +37,9 @@ public class Simulator {
             pool[i] = n;
         }
 
+        // create pool
+        Scheduler.createPool(pool);
+
         // crete processors
         Processor[] processors = new Processor[p_count];
         for (int i = 0; i < p_count; i++) {
@@ -46,9 +49,7 @@ public class Simulator {
         // total number of cycles
         int counter = 1;
 
-        // create pool
-        Scheduler.createPool(pool);
-
+        // start execution
         while (counter <= cycleCount) {
             Clock.tic(counter, processors);
             counter++;

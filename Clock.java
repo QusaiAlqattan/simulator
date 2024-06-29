@@ -8,7 +8,7 @@ public abstract class Clock {
         // update queue
         Scheduler.updateQueue(clockCount);
 
-        // set tasks
+        // assign tasks
         Scheduler.assignTasks(processors);
 
         // log

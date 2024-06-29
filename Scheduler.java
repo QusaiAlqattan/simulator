@@ -5,10 +5,12 @@ public class Scheduler {
     static private PriorityQueue<Task> queue = new PriorityQueue<>();
     static private Task[] pool;
 
+    // fills the pool with the created gives tasks
     static void createPool(Task[] pool) {
         Scheduler.pool = pool;
     }
 
+    // copied the created tasks from the pool to the queue
     static void updateQueue(int clockCount) {
         for (Task task : pool) {
             if (task.getStartCycle() == clockCount) {
@@ -24,6 +26,7 @@ public class Scheduler {
 //        }
     }
 
+    // assigns tasks to the idle processors
     static void assignTasks(Processor[] processors) {
         for (Processor p : processors) {
             if(p.getState().equals("Idle")) {
@@ -39,16 +42,4 @@ public class Scheduler {
             }
         }
     }
-
-//    static Task findHighestPriorityTask(){
-//        Task highestPriorityTask = null;
-//
-//        for (Task task : queue) {
-//            if (highestPriorityTask == null || highestPriorityTask.compareTo(task) < 0) {
-//                highestPriorityTask = task;
-//            }
-//        }
-//
-//        return highestPriorityTask;
-//    }
 }

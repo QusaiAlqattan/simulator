@@ -28,7 +28,7 @@ public class Main {
             return;
         }
 
-        // If all validations pass, run the simulator
+        // If all validations were passed, run the simulator
         Simulator.run(arg0, arg1, args[2]);
     }
 }

@@ -47,13 +47,11 @@ public class Processor implements Processor_int{
         return state;
     }
 
+    // sets the state to 'Idle' or 'Busy'
     @Override
     public void updateState(int clockCount){
         passedCycles++;
         if (t == null || passedCycles == t.getExecutionTime()) {
-//            if (this.id == 2) {
-//                System.out.println("Processor should be Idel");
-//            }
             this.removeTask();
             this.state = "Idle";
             passedCycles = 0;
@@ -61,15 +59,5 @@ public class Processor implements Processor_int{
         else{
             this.state = "Busy";
         }
-//        if (this.id == 2){
-//            System.out.println("Clock count: " + clockCount);
-//            System.out.println("State: " + state);
-//            System.out.println("Passed cycles: " + passedCycles);
-//            if (t != null){
-//                System.out.println("Task: " + t.getId());
-//                System.out.println("Duration: " + t.getExecutionTime());
-//            }
-//            System.out.println("###########################################");
-//        }
     }
 }

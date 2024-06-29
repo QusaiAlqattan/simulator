@@ -31,6 +31,7 @@ public class Task implements Comparable<Task>, Task_int{
         return priority;
     }
 
+    // compares tasks based on there priority, and execution time
     @Override
     public int compareTo(Task other) {
         // Compare tasks based on priority and duration
